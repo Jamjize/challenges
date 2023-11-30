@@ -8,37 +8,22 @@
 # - Los polígonos soportados serán Triángulo, Cuadrado y Rectángulo.
 # - Imprime el cálculo del área de un polígono de cada tipo.
 
-def calculate_area(poli: str, base: float, altura: float, lado=0.0):
-    """
-    Calcula el área de diferentes polígonos.
-
-    Args:
-    - poli (str): El tipo de polígono ("triangulo", "cuadrado" o "rectangulo").
-    - base (float): El valor de la base (usado en triángulo y rectángulo).
-    - altura (float): El valor de la altura (usado en triángulo y rectángulo).
-    - lado (float, opcional): El valor del lado (usado en cuadrado).
-
-    Returns:
-    - None: Imprime el área calculada para el polígono especificado.
-
-    """
+def calculate_area(poli: str, base=0.0, altura=0.0, lado=0.0):
+    if base < 0 or altura < 0 or lado < 0:
+        return "Solo se admiten números positivos."
+    
     if poli == "triangulo":
-        area = 0.5 * (base * altura)
+        area = (0.5 * base) * altura
     elif poli == "cuadrado":
         area = lado**2
     elif poli == "rectangulo":
         area = base * altura
     else:
-        print("Solo se puede usar: [triangulo, cuadrado, rectangulo]")
+        return "Solo se puede usar: [triangulo, cuadrado, rectangulo]."
     
-    print(f"El área de un {poli} es: {area}")
+    return f"El área de un {poli} es: {area}"
 
-# Test con el triángulo
-calculate_area("triangulo", 3, 5.13)
-
-# Tests con cuadrado y rectángulo
-calculate_area("cuadrado", 4)  # Si no se proporciona el lado, debería imprimir un mensaje de error
-calculate_area("rectangulo", 4, 6)
-
-# Ejemplo de uso de un valor no permitido
-calculate_area("pentagono", 0, 0)  # Debería imprimir un mensaje de error
+print(calculate_area("triangulo", 2, 3))
+print(calculate_area("cuadrado", lado=4))
+print(calculate_area("rectangulo", 2, 3))
+print(calculate_area("rectangulo", 2, -3))
