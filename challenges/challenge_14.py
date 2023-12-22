@@ -7,7 +7,7 @@
 # Si no conoces qué es un número de Armstrong, debes buscar 
 # información al respecto.
 
-def is_amstring(num):
+def is_amstrong(num):
     if not isinstance(num, int):
         return "Please enter an integer"
     
@@ -22,8 +22,8 @@ def is_amstring(num):
     else:
         return False
 
-print(is_amstring(153)) # True
-print(is_amstring(100)) # False
-print(is_amstring("hola")) # msg 1
-print(is_amstring(153.20)) # msg 1
-print(is_amstring(-20)) # msg 2
+print(is_amstrong(153)) # True
+print(is_amstrong(100)) # False
+print(is_amstrong("hola")) # msg 1
+print(is_amstrong(153.20)) # msg 1
+print(is_amstrong(-20)) # msg 2
